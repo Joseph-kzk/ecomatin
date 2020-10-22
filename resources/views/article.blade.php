@@ -5,153 +5,140 @@
 
 <body>
 
-	<div id="page-loader" class="fade show">
-		<span class="spinner"></span>
-	</div>
+    <div id="page-loader" class="fade show">
+        <span class="spinner"></span>
+    </div>
 
 
-	<div id="page-container"
-		class="fade page-sidebar-fixed page-header-fixed page-content-full-height page-with-wide-sidebar page-with-light-sidebar">
+    <div id="page-container" class="fade page-header-fixed page-sidebar-fixed">
 
         @include("includes.header")
 
         @include("includes.menu")
 
-		<div id="content" class="content content-full-width">
-
-			<div class="vertical-box with-grid inbox ">
 
 
-				<div class="vertical-box-column">
+        <div id="content" class="content">
 
-					<div class="vertical-box">
-                        <!-- begin alert -->
-                        @include('includes.alerte')
-                        <!-- end alert -->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
+                <li class="breadcrumb-item"><a href="javascript:;">Mes articles</a></li>
+                <li class="breadcrumb-item active">Rédiger</li>
+            </ol>
 
-						<div class="vertical-box-row bg-white">
 
-							<div class="vertical-box-cell">
+            <h3 class="page-header">Article <small>Page de rédaction</small></h3>
 
-								<div class="vertical-box-inner-cell">
+            <!-- begin alert -->
+            @include('includes.alerte')
+            <!-- end alert -->
 
-									<div data-scrollbar="true" data-height="100%" class="p-15">
+            <form action="{{ route('articles.store') }}" enctype="multipart/form-data" method="POST" name="email_to_form">
+                @csrf
 
-                                        <form action="{{ route('articles.store') }}" enctype="multipart/form-data" method="POST" name="email_to_form">
-                                            @csrf
+				<div class="row">
 
-											<div data-id="extra-cc"></div>
+                    <input type="text" name="auteur" class="form-control" value="{{ Auth::user()->lastname }} {{ Auth::user()->name }}" readonly/>
+                    <input type="text" name="surtitre" class="form-control mt-1" placeholder="Surtitre">
+                    <input type="text" name="titre" class="form-control mt-1" placeholder="Titre">
+                    <textarea name="chapeau" class="form-control mt-1" rows="1" placeholder="Chapeau"></textarea>
+                    <input type="text" name="reseau" class="form-control mt-1" placeholder="Chapeau des réseaux sociaux">
+                    <input type="file" name="image" class="form-control mt-1">
+                    <input type="text" name="legende" class="form-control mt-1" placeholder="Légende">
+                    <input type="text" name="tag" class="form-control mt-1" placeholder="Tag1, tag2, tag3...">
 
-											<div class="email-subject">
-												<input type="text" name="auteur" class="form-control"
-													value="{{ Auth::user()->lastname }} {{ Auth::user()->name }}" readonly/>
-                                            </div>
 
-                                            <div class="email-subject">
-												<input type="text" name="titre" class="form-control"
-													placeholder="Titre" />
-                                            </div>
+                    <div class="col-md-6 mt-1">
+                        <select name="type" class="form-control">
+                            <option>Journal en Ligne</option>
+                            <option>Journal Tabloïd</option>
+                            <option>Magazine</option>
+                        </select>
+                    </div>
 
-                                            <div class="email-subject">
-												<input type="text" name="surtitre" class="form-control"
-													placeholder="Surtitre" />
-                                            </div>
+                    <div class="col-md-6 mt-1">
+                        <select name="rubrique" class="form-control">
+                            <option>Banques et Finances</option>
+                            <option>Business et Entreprises</option>
+                            <option>Conjoncture</option>
+                            <option>Focus</option>
+                            <option>Graphique</option>
+                            <option>Image</option>
+                            <option>Edito</option>
+                            <option>Politiques Publiques</option>
+                            <option>Visage</option>
+                        </select>
+                    </div>
 
-                                            <div class="email-subject">
-												<input type="text" name="chapeau" class="form-control"
-													placeholder="Chapeau" />
-											</div>
 
-                                            <div class="email-subject">
-                                                <select name="type" class="form-control">
-                                                    <option>Journal en ligne</option>
-                                                    <option>Journal tabloïd</option>
-                                                    <option>Magasine</option>
-                                                </select>
-                                            </div>
 
-                                            <div class="email-subject">
+				</div>
 
-                                                <select name="rubrique" class="form-control">
+				<div class="row" style="margin-top: 15px;">
 
-                                                    <option>Banques et Finances</option>
-                                                    <option>Business et Entreprises</option>
-                                                    <option>Conjoncture</option>
-                                                    <option>Focus</option>
-                                                    <option>Graphique</option>
-                                                    <option>Image</option>
-                                                    <option>Edito</option>
-                                                    <option>Politiques Publiques</option>
-                                                    <option>Visage</option>
+					<div class="col-xl-12">
 
-                                                </select>
-
-                                            </div>
-
-                                            <div class="email-subject">
-												<input type="file" name="image" class="form-control" />
-                                            </div>
-
-                                            <div class="email-subject">
-												<input type="text"name="legende" class="form-control"
-													placeholder="Légende" />
-                                            </div>
-											<div class="email-to">
-												<span class="float-right-link">
-													<a href="#" data-click="add-cc" data-name="Cc" class="m-r-5">Cc</a>
-													<a href="#" data-click="add-cc" data-name="Bcc">Bcc</a>
-												</span>
-												<label class="control-label">To:</label>
-												<ul id="email-to" class="primary line-mode">
-													<li><a href="https://seantheme.com/cdn-cgi/l/email-protection"
-															class="__cf_email__"
-															data-cfemail="35575a5a414641475445755258545c591b565a58">[email&#160;protected]</a>
-													</li>
-													<li><a href="https://seantheme.com/cdn-cgi/l/email-protection"
-															class="__cf_email__"
-															data-cfemail="8cebe3e3ebe0e9ccebe1ede5e0a2efe3e1">[email&#160;protected]</a>
-													</li>
-												</ul>
-											</div>
-
-											<div class="p-t-15">
-
-												<textarea class="summernote" name="texte" placeholder="Rédiger le texte ..." > </textarea>
-
-                                            </div>
-
-                                            <div class="wrapper text-right">
-                                                <button type="submit" class="btn btn-info p-l-40 p-r-40">Enregistrer</button>
-                                            </div>
-
-										</form>
-
-									</div>
-
+						<div class="panel panel-inverse m-b-0">
+							<div class="panel-heading">
+								<h4 class="panel-title">Zone de texte</h4>
+								<div class="panel-heading-btn">
+									<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+									<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+									<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+									<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 								</div>
+							</div>
+							<div class="panel-body p-0">
+
+								<textarea class="summernote" name="texte"></textarea>
 
 							</div>
-
 						</div>
 
 					</div>
 
-				</div>
+                </div>
 
-			</div>
+                <button class="btn btn-primary btn-block" type="submit">Enregister l'article</button>
 
-		</div>
+			</form>
+
+        </div>
 
 
+        <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 
-		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade"
-			data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+    </div>
 
-	</div>
 
-    @include("includes.footer-script")
+    <script src="{{ asset('assets/js/app.min.js') }}" type="10a409e9517e95603a730c3c-text/javascript"></script>
+    <script src="{{ asset('assets/js/theme/facebook.min.js') }}" type="10a409e9517e95603a730c3c-text/javascript"></script>
+
+
+    <script src="{{ asset('assets/plugins/summernote/dist/summernote.min.js') }}" type="10a409e9517e95603a730c3c-text/javascript"></script>
+    <script src="{{ asset('assets/js/demo/form-summernote.demo.js') }}" type="10a409e9517e95603a730c3c-text/javascript"></script>
+
+    <script type="10a409e9517e95603a730c3c-text/javascript">
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '../../../../www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-53034621-1', 'auto');
+        ga('send', 'pageview');
+	</script>
+
+    <script src="{{ asset('assets/cdn-cgi2/scripts/7089c43e/cloudflare-static/rocket-loader.min.js') }}" data-cf-settings="10a409e9517e95603a730c3c-|49" defer=""></script>
 
 </body>
 
-</html>
+<!-- Mirrored from seantheme.com/color-admin/admin/facebook/form_summernote.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 15 Nov 2020 10:22:01 GMT -->
 
+</html>

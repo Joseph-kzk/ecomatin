@@ -1,3 +1,4 @@
+
 <div id="sidebar" class="sidebar">
 
     <div data-scrollbar="true" data-height="100%">
@@ -7,7 +8,7 @@
                 <a href="javascript:;" data-toggle="nav-profile">
                     <div class="cover with-shadow"></div>
                     <div class="image">
-                        <img src="{{ asset('assets/img/logo/logo-ecomatin.jfif') }}" alt="" />
+                        <img src="{{ asset('assets/img/logo/logo2.jfif') }}" alt="" />
                     </div>
                     <div class="info">
                         <b class="">{{ Auth::user()->lastname }}</b>
@@ -59,8 +60,7 @@
 
         </ul>
 
-
     </div>
 
-</div>
-<div class="sidebar-bg"></div>
+    </div>
+    <div class="sidebar-bg"></div>

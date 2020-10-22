@@ -15,10 +15,12 @@ class Article extends Model
         'surtitre',
         'auteur',
         'chapeau',
+        'reseau',
         'type',
         'rubrique',
         'image',
         'legende',
+        'tag',
         'texte',
         'created_at',
         'updated_at'

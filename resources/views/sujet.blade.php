@@ -263,18 +263,49 @@
 
     @endforeach
 
-    @include("includes.footer-table")
 
-	<script type="0413b558f4502ab34eb7586b-text/javascript">
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+    <script src="{{ asset('assets/js/app.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/js/theme/facebook.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
 
-	  ga('create', 'UA-53034621-1', 'auto');
-	  ga('send', 'pageview');
 
-	</script>
+    <script src="{{ asset('assets/plugins/datatables.net/js/jquery.dataTables.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/datatables.net-responsive/js/dataTables.responsive.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/datatables.net-buttons/js/dataTables.buttons.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/datatables.net-buttons/js/buttons.colVis.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/datatables.net-buttons/js/buttons.flash.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/datatables.net-buttons/js/buttons.html5.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/datatables.net-buttons/js/buttons.print.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/pdfmake/build/pdfmake.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/pdfmake/build/vfs_fonts.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/jszip/dist/jszip.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/js/demo/table-manage-buttons.demo.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+
+    <script type="644b1261aea506e0a4d74821-text/javascript">
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '../../../../www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-53034621-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script src="{{ asset('assets/cdn-cgi2/scripts/7089c43e/cloudflare-static/rocket-loader.min.js') }}" data-cf-settings="644b1261aea506e0a4d74821-|49" defer=""></script>
+
+    <script src="{{ asset('assets/plugins/gritter/js/jquery.gritter.js') }}" type="85fc20a8260852016fe6a764-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/sweetalert/dist/sweetalert.min.js') }}" type="85fc20a8260852016fe6a764-text/javascript"></script>
+    <script src="{{ asset('assets/js/demo/ui-modal-notification.demo.js') }}" type="85fc20a8260852016fe6a764-text/javascript"></script>
+    <script src="{{ asset('assets/cdn-cgi2/scripts/7089c43e/cloudflare-static/rocket-loader.min.js') }}" data-cf-settings="85fc20a8260852016fe6a764-|49" defer=""></script>
+
 
 </body>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Rubrique;
+use App\User;
 use App\Article;
 use App\Sujet;
 use Illuminate\Http\Request;
@@ -18,7 +19,8 @@ class RubriqueController extends Controller
     public function index()
     {
         $rubriques = Rubrique::all();
-        return view('rubrique', compact('rubriques'));
+        $users = User::all();
+        return view('rubrique', compact('rubriques'),['users' => $users]);
     }
 
     /**
@@ -47,6 +49,7 @@ class RubriqueController extends Controller
         $rubriques = new Rubrique([
 
             'nom' => $request->get('nom'),
+            'responsable' => $request->get('responsable'),
             'description' => $request->get('description'),
         ]);
         $rubriques->save();

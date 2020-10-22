@@ -95,18 +95,33 @@
 
 	</div>
 
-    @include("includes.profile")
+    <script src="{{ asset('assets/js/app.min.js') }}" type="82dd002e12d73d58e58b5a4e-text/javascript"></script>
+    <script src="{{ asset('assets/js/theme/facebook.min.js') }}" type="82dd002e12d73d58e58b5a4e-text/javascript"></script>
 
-	<script type="bfb813afa25c7a627b45cbe1-text/javascript">
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
 
-	  ga('create', 'UA-53034621-1', 'auto');
-	  ga('send', 'pageview');
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false" type="82dd002e12d73d58e58b5a4e-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/superbox/jquery.superbox.min.js') }}" type="82dd002e12d73d58e58b5a4e-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/lity/dist/lity.min.js') }}" type="82dd002e12d73d58e58b5a4e-text/javascript"></script>
+    <script src="{{ asset('assets/js/demo/profile.demo.js') }}" type="82dd002e12d73d58e58b5a4e-text/javascript"></script>
 
-	</script>
+    <script type="82dd002e12d73d58e58b5a4e-text/javascript">
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '../../../../www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-53034621-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script src="{{ asset('assets/cdn-cgi2/scripts/7089c43e/cloudflare-static/rocket-loader.min.js') }}" data-cf-settings="82dd002e12d73d58e58b5a4e-|49" defer=""></script>
+
 
 </body>
 

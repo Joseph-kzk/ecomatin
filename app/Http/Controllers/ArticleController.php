@@ -60,6 +60,7 @@ class ArticleController extends Controller
             'titre' => $request->get('titre'),
             'surtitre' => $request->get('surtitre'),
             'chapeau' => $request->get('chapeau'),
+            'reseau' => $request->get('reseau'),
             'type' => $request->get('type'),
             'rubrique' => $request->get('rubrique'),
             'image' => $base64,

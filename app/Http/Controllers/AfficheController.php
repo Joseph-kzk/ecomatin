@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\DB;
 class AfficheController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Show the application dashboard.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
     {
@@ -31,18 +31,85 @@ class AfficheController extends Controller
         $business = Article::where('rubrique','=','Business et Entreprises')->get()->count();
         $politique = Article::where('rubrique','=','Politiques Publiques')->get()->count();
 
-        return view('home')
+        $role = auth()->user()->role;
+
+        if($role == 'Rédacteur_en_chef')
+        {
+            return view('home')
+                ->with('journalistes',$journalistes)
+                ->with('articles',$articles)
+                ->with('rubriques',$rubriques)
+                ->with('jl',$jl)
+                ->with('jt',$jt)
+                ->with('jm',$jm)
+                ->with('conjoncture',$conjoncture)
+                ->with('banque',$banque)
+                ->with('business',$business)
+                ->with('politique',$politique)
+            ;
+        }
+
+        elseif($role == 'Journaliste')
+        {
+            $mesarticles = Article::user()->get();
+            return view('mesarticles')
+                ->with('journalistes',$journalistes)
+                ->with('articles',$mesarticles)
+                ->with('rubriques',$rubriques)
+                ->with('jl',$jl)
+                ->with('jt',$jt)
+                ->with('conjoncture',$conjoncture)
+                ->with('banque',$banque)
+                ->with('business',$business)
+                ->with('politique',$politique)
+            ;
+        }
+
+        elseif($role == 'Coordonnateur Journal en ligne')
+        {
+            return view('homecordojl')
+                ->with('journalistes',$journalistes)
+                ->with('articles',$articles)
+                ->with('rubriques',$rubriques)
+                ->with('jl',$jl)
+                ->with('jt',$jt)
+                ->with('conjoncture',$conjoncture)
+                ->with('banque',$banque)
+                ->with('business',$business)
+                ->with('politique',$politique)
+            ;
+        }
+
+        elseif($role == 'Coordonnateur Journal tabloïd')
+        {
+            return view('homecordojt')
             ->with('journalistes',$journalistes)
             ->with('articles',$articles)
             ->with('rubriques',$rubriques)
             ->with('jl',$jl)
             ->with('jt',$jt)
-            ->with('jm',$jm)
             ->with('conjoncture',$conjoncture)
             ->with('banque',$banque)
             ->with('business',$business)
             ->with('politique',$politique)
-        ;
+            ;
+        }
+
+        elseif($role == 'Coordonnateur des rédactions')
+        {
+            return view('homecordored')
+                ->with('articles',$articles)
+                ->with('rubriques',$rubriques)
+                ->with('jl',$jl)
+                ->with('jt',$jt)
+                ->with('jm',$jm)
+                ->with('conjoncture',$conjoncture)
+                ->with('banque',$banque)
+                ->with('business',$business)
+                ->with('politique',$politique)
+            ;
+        }
+
     }
 
 

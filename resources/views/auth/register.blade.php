@@ -10,49 +10,44 @@
 	</div>
 
 
-	<div id="page-container"
-		class="fade in page-sidebar-fixed page-header-fixed page-with-wide-sidebar page-with-light-sidebar">
+	<div id="page-container" class="fade in page-sidebar-fixed page-header-fixed page-with-wide-sidebar page-with-light-sidebar">
 
         @include("includes.header")
 
         @include("includes.menu")
 
 
-		<div id="content" class="content">
+        <div id="content" class="content">
 
-			<ol class="breadcrumb float-xl-right">
-				<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
-				<li class="breadcrumb-item"><a href="javascript:;">utilisateurs</a></li>
-			</ol>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
+                <li class="breadcrumb-item"><a href="javascript:;">Utilisateurs</a></li>
+            </ol>
 
 
-            <h2 class="page-header">Liste des utilisateurs</h2>
+            <h1 class="page-header">Tous les journalistes <small>toute la rédaction</small></h1>
 
-            <!-- begin alert -->
-            @include('includes.alerte')
-            <!-- end alert -->
+            <a href="#modal-dialog" class="btn btn-sm btn-info" data-toggle="modal" style="margin-bottom:15px;">Ajouter <i class="fa fa-plus"></i> </a>
 
-            <div class="">
+            <div class="row">
 
-                <a href="#modal-dialog" class="btn btn-sm btn-info" data-toggle="modal" style="margin-bottom:15px;">Ajouter  <i class="fa fa-plus"></i> </a>
 
-                <div class="panel panel-inverse">
+                <div class="col-xl">
 
-                    <div class="panel-heading">
-                        <h4 class="panel-title">Tableau des utilisateurs</h4>
-                        <div class="panel-heading-btn">
-                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default"
-                                data-click="panel-expand"><i class="fa fa-expand"></i>
-                            </a>
-                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning"
-                                data-click="panel-collapse"><i class="fa fa-minus"></i>
-                            </a>
+                    <div class="panel panel-inverse">
+
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Tableau des utilisateurs</h4>
+                            <div class="panel-heading-btn">
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                            </div>
                         </div>
-                    </div>
 
-
-                    <div class="panel-body">
-                        <table id="data-table-buttons"
+                        <div class="panel-body">
+                            <table id="data-table-buttons"
                             class="table table-striped table-bordered table-td-valign-middle">
                             <thead>
                                 <tr>
@@ -86,15 +81,15 @@
 
                             </tbody>
                         </table>
+                        </div>
+
                     </div>
 
                 </div>
 
             </div>
 
-
-
-		</div>
+        </div>
 
 		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade"
 			data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
@@ -250,9 +245,26 @@
 
 
 
-    @include("includes.footer-table")
+    <script src="{{ asset('assets/js/app.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/js/theme/facebook.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
 
-    <script type="0413b558f4502ab34eb7586b-text/javascript">
+
+    <script src="{{ asset('assets/plugins/datatables.net/js/jquery.dataTables.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/datatables.net-responsive/js/dataTables.responsive.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/datatables.net-buttons/js/dataTables.buttons.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/datatables.net-buttons/js/buttons.colVis.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/datatables.net-buttons/js/buttons.flash.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/datatables.net-buttons/js/buttons.html5.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/datatables.net-buttons/js/buttons.print.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/pdfmake/build/pdfmake.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/pdfmake/build/vfs_fonts.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/jszip/dist/jszip.min.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+    <script src="{{ asset('assets/js/demo/table-manage-buttons.demo.js') }}" type="644b1261aea506e0a4d74821-text/javascript"></script>
+
+    <script type="644b1261aea506e0a4d74821-text/javascript">
         (function(i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
             i[r] = i[r] || function() {
@@ -268,9 +280,17 @@
         ga('create', 'UA-53034621-1', 'auto');
         ga('send', 'pageview');
     </script>
+    <script src="{{ asset('assets/cdn-cgi2/scripts/7089c43e/cloudflare-static/rocket-loader.min.js') }}" data-cf-settings="644b1261aea506e0a4d74821-|49" defer=""></script>
+
+    <script src="{{ asset('assets/plugins/gritter/js/jquery.gritter.js') }}" type="85fc20a8260852016fe6a764-text/javascript"></script>
+    <script src="{{ asset('assets/plugins/sweetalert/dist/sweetalert.min.js') }}" type="85fc20a8260852016fe6a764-text/javascript"></script>
+    <script src="{{ asset('assets/js/demo/ui-modal-notification.demo.js') }}" type="85fc20a8260852016fe6a764-text/javascript"></script>
+    <script src="{{ asset('assets/cdn-cgi2/scripts/7089c43e/cloudflare-static/rocket-loader.min.js') }}" data-cf-settings="85fc20a8260852016fe6a764-|49" defer=""></script>
+
 
 
 </body>
 
 
 </html>
+

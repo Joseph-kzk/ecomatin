@@ -4,79 +4,86 @@
 
     @include("includes.head")
 
-    <body class="pace-top">
+<body class="pace-top">
 
-        <div id="page-loader" class="fade show">
-            <span class="spinner"></span>
-        </div>
+    <div id="page-loader" class="fade show">
+        <span class="spinner"></span>
+    </div>
 
-            <!-- begin alert -->
-            @include('includes.alerte')
-            <!-- end alert -->
 
-        <div id="page-container" class="fade">
+    <div id="page-container" class="fade">
 
-            <div class="login login-v1">
+        <div class="login login-with-news-feed">
 
-                <div class="login-container">
-                    <div style="text-align:center;margin-bottom:25px;">
-                        <img src="{{ asset('assets/img/logo/LOGO_ECOMATIN.png')}}" width="400px" height="100px" alt=""/>
+            <div class="news-feed">
+                <img src="{{ asset('assets/img/logo/logo1.png') }}" height="120" style="margin-top: 290px; margin-left:50px;" alt="">
+            </div>
+
+
+            <div class="right-content">
+
+                    <!-- begin alert -->
+                    @include('includes.alerte')
+                    <!-- end alert -->
+
+                <div class="login-header">
+                    <div class="brand">
+                         <b>LOGIN</b>
+                        <small>Page de connexion</small>
                     </div>
-                    <div class="login-header">
-                        <div class="brand">
-                            <span class="logo">
-                            </span> <b>Connexion</b>
-                        </div>
-                        <div class="icon">
-                            <i class="fa fa-lock"></i>
-                        </div>
+                    <div class="icon">
+                        <i class="fa fa-sign-in-alt"></i>
                     </div>
+                </div>
 
 
-                    <div class="login-body">
+                <div class="login-content">
 
-                        <div class="login-content">
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
 
-                            <form method="POST" action="{{ route('login') }}">
-                                @csrf
-
-                                <div class="form-group m-b-20">
-                                    <input id="email" type="text" class="form-control form-control-lg inverse-mode @error('email') is-invalid @enderror" name="email" placeholder="Login" autocomplete="email" autofocus/>
-                                </div>
-
-                                <div class="form-group m-b-20">
-                                    <input id="password" type="password" class="form-control form-control-lg inverse-mode @error('password') is-invalid @enderror" placeholder="Mot de passe" name="password" required autocomplete="current-password" />
-                                </div>
-
-                                <div class="login-buttons">
-                                    <button type="submit" class="btn btn-info btn-block btn-lg">Se connecter</button>
-                                </div>
-
-                            </form>
+                        <div class="form-group m-b-15">
+                            <input type="text" name="email" class="form-control form-control-lg" placeholder="Address mail" required />
                         </div>
 
-                    </div>
+                        <div class="form-group m-b-15">
+                            <input type="password" name="password" class="form-control form-control-lg" placeholder="Mot de passe" required />
+                        </div>
+
+                        <div class="checkbox checkbox-css m-b-30">
+                            <input type="checkbox" id="remember_me_checkbox" value="" />
+                            <label for="remember_me_checkbox">
+                                Remember Me
+                            </label>
+                        </div>
+
+                        <div class="login-buttons">
+                            <button type="submit" class="btn btn-info btn-block btn-lg">Se connecter</button>
+                        </div>
+
+                        <hr />
+                        <p class="text-center text-grey-darker mb-0">
+                            &copy; EcoMatin 2020
+                        </p>
+
+                    </form>
 
                 </div>
 
             </div>
+
         </div>
 
+        <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 
-        @include("includes.footer-script")
-
-        <script type="51afaff80741d556678c68c6-text/javascript">
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
-
-            ga('create', 'UA-53034621-1', 'auto');
-            ga('send', 'pageview');
-
-        </script>
+    </div>
 
 
-    </body>
+    <script src="{{ asset('assets/js/app.min.js') }}" type="18c5555b2283b54d9dda0b0b-text/javascript"></script>
+    <script src="{{ asset('assets/js/theme/facebook.min.js') }}" type="18c5555b2283b54d9dda0b0b-text/javascript"></script>
+
+    <script src="{{ asset('assets/cdn-cgi2/scripts/7089c43e/cloudflare-static/rocket-loader.min.js') }}" data-cf-settings="18c5555b2283b54d9dda0b0b-|49" defer=""></script>
+</body>
+
 
 </html>
