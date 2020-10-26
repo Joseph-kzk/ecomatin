@@ -2,18 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Utilisateur;
+use nApp\Utilisateur;
 use App\User;
 use App\Sujet;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 
 class UtilisateurController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function index()
     {
@@ -24,7 +28,7 @@ class UtilisateurController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function create()
     {
@@ -35,8 +39,8 @@ class UtilisateurController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
@@ -66,8 +70,8 @@ class UtilisateurController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Protocolaire  $protocolaire
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return Application|Factory|View
      */
     public function show($id)
     {
@@ -89,9 +93,9 @@ class UtilisateurController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Utilisateur  $utilisateur
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param $id
+     * @return RedirectResponse
      */
     public function update(Request $request,$id)
     {
@@ -105,8 +109,8 @@ class UtilisateurController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Utilisateur  $utilisateur
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return RedirectResponse
      */
     public function destroy($id)
     {
