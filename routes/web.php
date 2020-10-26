@@ -59,4 +59,4 @@ Route::resource('menus', 'MenuController');
 
 Route::resource('/{id}/sujets', 'SujetController');
 
-Route::get('/search','ArticleController@search');
+Route::get('/search','SearchController@testsearch');

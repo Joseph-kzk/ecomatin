@@ -11,10 +11,10 @@
     <ul class="navbar-nav navbar-right">
         <li class="navbar-form">
 
-            <form action="{{ url('/search') }}" method="GET">
+            <form action="" method="GET" role="search">
 
                 <div class="form-group">
-                    <input type="text" name="search" class="form-control" placeholder="Recherche..." />
+                    <input type="text" name="q" class="form-control" placeholder="Recherche..." />
                     <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
                 </div>
 
