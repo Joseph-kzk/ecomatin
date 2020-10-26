@@ -64,7 +64,7 @@
 														<div class="email-to">
 															Pour le : {{ $articles->type }}
                                                         </div>
-                                                        <p class="mt-3 mb-2px" id="counter"></p>
+                                                        <p class="mt-3 mb-2px" id="counter">ici c'est le nombre de signes</p>
                                                     </div>
 
 												</li>

@@ -69,16 +69,10 @@ class ArticleController extends Controller
             'texte' => $request->get('texte'),
             'iduser' => auth()->id()
         ]);
-        
+
         $articles->save();
 
         return redirect()->route('mesarticles')->with('success', 'Article enregistré et envoyé avec succès');
-    }
-
-    public function search(Request $request)
-    {
-        $articles =Article::where('titre', 'LIKE',"%{$request->search}%")->get();
-        return view('listearticle',compact('articles'));
     }
 
     /**
