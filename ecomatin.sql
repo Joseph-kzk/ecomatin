@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le :  mar. 17 nov. 2020 à 15:44
+-- Généré le :  mar. 27 oct. 2020 à 09:27
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.11
 
@@ -32,13 +32,13 @@ CREATE TABLE `articles` (
   `idarticle` int(10) UNSIGNED NOT NULL,
   `iduser` int(10) UNSIGNED NOT NULL,
   `auteur` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `titre` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `surtitre` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `titre` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `surtitre` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `chapeau` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `reseau` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `reseau` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `rubrique` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` blob NOT NULL,
+  `image` longblob NOT NULL,
   `legende` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tag` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `texte` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -137,7 +137,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `lastname`, `number`, `role`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'BONTSEBE', 'Serges', '698310165', 'Rédacteur_en_chef', 'admin@gmail.com', '$2y$10$Y1iX7fWI29yNhAffAHT62e0lPnDEscAPbcXMreme76jragavmNNFe', '2020-11-17 14:43:59', NULL);
+(1, 'BONTSEBE', 'Serges', '698310165', 'Rédacteur_en_chef', 'admin@gmail.com', '$2y$10$3fiPiaYkLN.LlEugSvnqLe948fN9RFvEubBtO5kO.wDxLBYxNA/NO', '2020-10-27 08:18:31', NULL);
 
 --
 -- Index pour les tables déchargées

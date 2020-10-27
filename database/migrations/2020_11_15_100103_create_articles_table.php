@@ -18,10 +18,10 @@ class CreateArticlesTable extends Migration
             $table->unsignedBigInteger('iduser');
             $table->foreign('iduser')->references('id')->on('users');
             $table->string('auteur');
-            $table->string('titre');
+            $table->text('titre');
             $table->string('surtitre');
             $table->text('chapeau');
-            $table->string('reseau');
+            $table->text('reseau');
             $table->string('type');
             $table->string('rubrique');
             $table->binary('image');
