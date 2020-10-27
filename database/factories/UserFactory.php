@@ -19,9 +19,27 @@ use Faker\Generator as Faker;
 $factory->define(User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
+        'lastname' => $faker->lastName,
+        'number' => $faker->unique()->phoneNumber,
+        "role" => $faker->randomElements(['redacteur_en_chef','journaliste','Coordonnateur Journal tabloïd','Coordonnateur Journal en ligne','Coordonnateur des rédactions']),
         'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        'remember_token' => Str::random(10),
+        'password' => bcrypt("password"),
     ];
 });
+
+$factory->state(User::class, 'redacteur_en_chef', [
+    'role' => 'redacteur_en_chef'
+]);
+
+$factory->state(User::class, 'journaliste', [
+    'role' => 'journaliste'
+]);
+
+$factory->state(User::class, 'Coordonnateur Journal tabloïd', [
+    'role' => 'Coordonnateur Journal tabloïd'
+]);
+$factory->state(User::class, 'Coordonnateur des rédactions', [
+    'role' => 'Coordonnateur des rédactions'
+]);
+
+

@@ -11,10 +11,11 @@
     <ul class="navbar-nav navbar-right">
         <li class="navbar-form">
 
-            <form action="" method="GET">
+            <form action=" {{ route('article.search') }} " method="POST" onsubmit="search(event)" id="searchForm">
+                @csrf
 
                 <div class="form-group">
-                    <input type="text" name="search" class="form-control" placeholder="Recherche..." />
+                    <input type="text" id="words" class="form-control" placeholder="Recherche..." />
                     <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
                 </div>
 

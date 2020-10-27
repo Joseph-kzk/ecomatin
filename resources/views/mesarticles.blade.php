@@ -14,10 +14,13 @@
 
         @include("includes.header")
 
+
         @include("includes.menu")
 
 
+
         <div id="content" class="content content-full-width">
+
 
             <div class="vertical-box with-grid inbox bg-light">
 
@@ -37,11 +40,14 @@
                                 @include('includes.alerte')
                                 <!-- end alert -->
 
+
+
                                 <a href="{{ route('articles.create') }}" class="btn btn-white btn-sm" >
                                     Rédiger  <i class="fa fa-edit"></i>
                                 </a>
 
                                 </div>
+
                                 <div class="btn-group ml-auto">
                                     <button class="btn btn-white btn-sm">
                                     <i class="fa fa-chevron-left"></i>
@@ -194,6 +200,30 @@
     </script>
     <script src="{{ asset('assets/cdn-cgi2/scripts/7089c43e/cloudflare-static/rocket-loader.min.js') }}" data-cf-settings="ef824e106a4851ec9a31c0a1-|49" defer=""></script>
 
+    <script>
+
+        function search(event) {
+            event.preventDefault()
+            const words = document.querySelector('#words').value
+            const url = document.querySelector('#searchForm').getAttribute('action')
+
+            axios.post(`${url}`, {
+                words: words,
+            })
+                .then(function (response) {
+                    const search = response.data.search
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+
+
+        }
+
+    </script>
+
 </body>
+
+
 
 </html>
