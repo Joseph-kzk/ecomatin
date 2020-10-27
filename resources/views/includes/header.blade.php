@@ -1,6 +1,6 @@
 <div id="header" class="header navbar-inverse">
 
-    <div class="navbar-header"><a href="index.html" class="navbar-brand"> <b>EcoMatin</b> Plateforme <small>collaborative</small></a>
+    <div class="navbar-header"><a href="#" class="navbar-brand"> <b>EcoMatin</b> Plateforme <small>collaborative</small></a>
         <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>

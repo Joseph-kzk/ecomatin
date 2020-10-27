@@ -16,7 +16,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        $articles = DB::table('articles')->orderby('idarticle','desc')->get();
         return view('listearticle', compact('articles'));
     }
 
