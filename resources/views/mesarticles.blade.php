@@ -68,39 +68,41 @@
 
                                 <div class="vertical-box-inner-cell bg-white">
 
-                                    <div data-scrollbar="true" data-height="100%">
+                                    <div data-scrollbar="true" data-height="100%" id="results">
 
                                         <ul class="list-group list-group-lg no-radius list-email">
 
-                                            @if(count($articles) > 0)
 
-                                                @foreach($articles as $key=> $article)
+                                                @if(count($articles) > 0)
 
-                                                    <li class="list-group-item unread">
+                                                    @foreach($articles as $key=> $article)
 
-                                                        <a href="" class="email-user bg-blue">
-                                                            <span class="text-white"><i class="fa fa-file-alt"></i></span>
-                                                        </a>
+                                                        <li class="list-group-item unread">
 
-                                                        <div class="email-info">
-                                                            <a href="{{ route('articles.show', $article->idarticle) }}">
-
-                                                                <span class="email-sender">{{ $article->auteur }}</span>
-                                                                <span class="email-title">{{ $article->titre }}</span>
-                                                                <span class="email-desc">{{ $article->chapeau }}</span>
-                                                                <span class="email-desc" style="margin-left: 100px;">{{ $article->created_at }}</span>
-
+                                                            <a href="" class="email-user bg-blue">
+                                                                <span class="text-white"><i class="fa fa-file-alt"></i></span>
                                                             </a>
 
-                                                        </div>
-                                                        <div>
-                                                            <a href="{{ route('articles.edit', $article->idarticle) }}" class="btn btn-primary btn-xs"> <i class="fa fa-pen" style="color: white;"></i></a>
-                                                            <a href="#modal-alert{{$article->idarticle}}" class="btn btn-danger btn-xs" data-toggle="modal"> <i class="fa fa-trash" style="color: white;"></i></a>
+                                                            <div class="email-info">
+                                                                <a href="{{ route('articles.show', $article->idarticle) }}">
 
-                                                        </div>
-                                                    </li>
+                                                                    <span class="email-sender">{{ $article->auteur }}</span>
+                                                                    <span class="email-title">{{ $article->titre }}</span>
+                                                                    <span class="email-desc">{{ $article->chapeau }}</span>
+                                                                    <span class="email-desc" style="margin-left: 100px;">{{ $article->created_at }}</span>
 
-                                                @endforeach
+                                                                </a>
+
+                                                            </div>
+                                                            <div>
+                                                                <a href="{{ route('articles.edit', $article->idarticle) }}" class="btn btn-primary btn-xs"> <i class="fa fa-pen" style="color: white;"></i></a>
+                                                                <a href="#modal-alert{{$article->idarticle}}" class="btn btn-danger btn-xs" data-toggle="modal"> <i class="fa fa-trash" style="color: white;"></i></a>
+
+                                                            </div>
+                                                        </li>
+
+                                                    @endforeach
+
 
                                                 @else
                                                 <p style="margin-left:30px;margin-bottom:10px;">Aucun article pour le moment</p>
@@ -203,6 +205,7 @@
     <script>
 
         function search(event) {
+
             event.preventDefault()
             const words = document.querySelector('#words').value
             const url = document.querySelector('#searchForm').getAttribute('action')
@@ -212,18 +215,67 @@
             })
                 .then(function (response) {
                     const search = response.data.search
+
+                    let results = document.querySelector('#results')
+                    results.innerHTML = ''
+
+                    for(let i = 0; search.length; i++){
+
+                        let li = document.createElement('li')
+                            li.classList.add('list-group-item', 'unread')
+
+                        let div = document.createElement('div')
+                            div.classList.add('email-info')
+
+                        let lien = document.createElement('a')
+                            lien.classList.add('href="{{ route('articles.show',$article->idarticle) }}"')
+
+                        let auteur = document.createElement('span')
+                            auteur.classList.add('email-sender')
+                            auteur.innerHTML = search[i].auteur
+
+                        let title = document.createElement('span')
+                            title.classList.add('email-title')
+                            title.innerHTML = search[i].title
+
+                        let chapeau = document.createElement('span')
+                        chapeau.classList.add('email-desc')
+                        chapeau.innerHTML = search[i].chapeau
+
+                        let create_at = document.createElement('span')
+                        create_at.classList.add('email-desc')
+                        create_at.innerHTML = search[i].create_at
+
+                        let divo = document.createElement('div')
+                      //  let lien2 = document.createElement('a')
+                      //      lien2.classList.add('href="{{ route('articles.edit', $article->idarticle) }} "', 'btn', 'btn-primary', 'btn-xs')
+                       // let lien3 = document.createElement('a')
+                         //   lien3.classList.add('href="#modal-alert{{$article->idarticle}}" }} "', 'btn', 'btn-danger', 'btn-xs', 'modal')
+
+                        li.appendChild(div)
+                        li.appendChild(divo)
+
+                        div.appendChild(lien)
+                        div.appendChild(auteur)
+                        div.appendChild(title)
+                        div.appendChild(chapeau)
+                        div.appendChild(create_at)
+
+                       // divo.appendChild(lien2)
+                       // divo.appendChild(lien3)
+
+                        results.appendChild(li)
+
+                    }
+
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
-
-
         }
 
-    </script>
+        </script>
 
 </body>
-
-
 
 </html>

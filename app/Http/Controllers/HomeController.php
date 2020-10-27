@@ -6,13 +6,14 @@ use App\Menu;
 use App\Sujet;
 use App\Rubrique;
 use App\Article;
-use App\Utilisateur;
+use Illuminate\Support\Facades\DB;
 use App\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+
 
 class HomeController extends Controller
 {
@@ -245,11 +246,7 @@ class HomeController extends Controller
          $search = DB::table('articles')
              ->where('auteur', 'LIKE', "%$words%")
              ->Orwhere('titre', 'LIKE', "%$words%")
-             ->Orwhere('surtitre', 'LIKE', "%$words%")
              ->Orwhere('chapeau', 'LIKE', "%$words%")
-             ->Orwhere('reseau', 'LIKE', "%$words%")
-             ->Orwhere('type', 'LIKE', "%$words%")
-             ->Orwhere('rubrique', 'LIKE', "%$words%")
              ->OrderBy('created_at', 'DESC')
              ->get();
 

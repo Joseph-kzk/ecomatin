@@ -42,4 +42,3 @@ $factory->state(User::class, 'Coordonnateur des rédactions', [
     'role' => 'Coordonnateur des rédactions'
 ]);
 
-
