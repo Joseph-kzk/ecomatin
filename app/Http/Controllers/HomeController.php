@@ -8,7 +8,11 @@ use App\Rubrique;
 use App\Article;
 use App\Utilisateur;
 use App\User;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
@@ -33,7 +37,7 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return Renderable
      */
     public function index()
     {
@@ -132,7 +136,7 @@ class HomeController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
      public function homecordojl()
      {
@@ -146,7 +150,7 @@ class HomeController extends Controller
      /**
       * Display a listing of the resource.
       *
-      * @return \Illuminate\Http\Response
+      * @return Application|Factory|View
       */
      public function homecordojt()
      {
@@ -160,7 +164,7 @@ class HomeController extends Controller
      /**
       * Display a listing of the resource.
       *
-      * @return \Illuminate\Http\Response
+      * @return Application|Factory|View
       */
      public function journalenligne()
      {
@@ -171,7 +175,7 @@ class HomeController extends Controller
      /**
       * Display a listing of the resource.
       *
-      * @return \Illuminate\Http\Response
+      * @return Application|Factory|View
       */
      public function journaltabloid()
      {
@@ -182,7 +186,7 @@ class HomeController extends Controller
      /**
       * Display a listing of the resource.
       *
-      * @return \Illuminate\Http\Response
+      * @return Application|Factory|View
       */
      public function conjoncture()
      {
@@ -193,7 +197,7 @@ class HomeController extends Controller
      /**
       * Display a listing of the resource.
       *
-      * @return \Illuminate\Http\Response
+      * @return Application|Factory|View
       */
      public function banque()
      {
@@ -204,7 +208,7 @@ class HomeController extends Controller
      /**
       * Display a listing of the resource.
       *
-      * @return \Illuminate\Http\Response
+      * @return Application|Factory|View
       */
      public function politique()
      {
@@ -215,7 +219,7 @@ class HomeController extends Controller
      /**
       * Display a listing of the resource.
       *
-      * @return \Illuminate\Http\Response
+      * @return Application|Factory|View
       */
      public function business()
      {
@@ -226,11 +230,35 @@ class HomeController extends Controller
      /**
       * Display a listing of the resource.
       *
-      * @return \Illuminate\Http\Response
+      * @return Application|Factory|View
       */
      public function magazine()
      {
          $magazines = Article::where('type','=','Magazine')->get();
          return view('magazines', compact('magazines'));
+     }
+
+     public function search(Request $request){
+
+         $words = $request->words;
+
+         $search = DB::table('articles')
+             ->where('auteur', 'LIKE', "%$words%")
+             ->Orwhere('titre', 'LIKE', "%$words%")
+             ->Orwhere('surtitre', 'LIKE', "%$words%")
+             ->Orwhere('chapeau', 'LIKE', "%$words%")
+             ->Orwhere('reseau', 'LIKE', "%$words%")
+             ->Orwhere('type', 'LIKE', "%$words%")
+             ->Orwhere('rubrique', 'LIKE', "%$words%")
+             ->OrderBy('created_at', 'DESC')
+             ->get();
+
+         return response()->json([
+             'success' => true,
+             'search' => $search
+         ]);
+
+
+
      }
 }

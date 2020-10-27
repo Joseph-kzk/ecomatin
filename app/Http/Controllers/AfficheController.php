@@ -8,6 +8,7 @@ use App\Rubrique;
 use App\Article;
 use App\Utilisateur;
 use App\User;
+use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +17,7 @@ class AfficheController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return Renderable
      */
     public function index()
     {
