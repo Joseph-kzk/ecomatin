@@ -236,7 +236,7 @@
 
                         let title = document.createElement('span')
                             title.classList.add('email-title')
-                            title.innerHTML = search[i].title
+                            title.innerHTML = search[i].titre
 
                         let chapeau = document.createElement('span')
                         chapeau.classList.add('email-desc')
@@ -244,13 +244,13 @@
 
                         let create_at = document.createElement('span')
                         create_at.classList.add('email-desc')
-                        create_at.innerHTML = search[i].create_at
+                        create_at.innerHTML = search[i].created_at
 
                         let divo = document.createElement('div')
-                      //  let lien2 = document.createElement('a')
-                      //      lien2.classList.add('href="{{ route('articles.edit', $article->idarticle) }} "', 'btn', 'btn-primary', 'btn-xs')
-                       // let lien3 = document.createElement('a')
-                         //   lien3.classList.add('href="#modal-alert{{$article->idarticle}}" }} "', 'btn', 'btn-danger', 'btn-xs', 'modal')
+                        let lien2 = document.createElement('a')
+                            lien2.classList.add('href="{{ route('articles.edit',$article->idarticle) }}"')
+                        let lien3 = document.createElement('a')
+                            lien3.classList.add('href="#modal-alert{{$article->idarticle}}"')
 
                         li.appendChild(div)
                         li.appendChild(divo)
@@ -261,10 +261,12 @@
                         div.appendChild(chapeau)
                         div.appendChild(create_at)
 
-                       // divo.appendChild(lien2)
-                       // divo.appendChild(lien3)
+                        divo.appendChild(lien2)
+                        divo.appendChild(lien3)
 
                         results.appendChild(li)
+
+
 
                     }
 
