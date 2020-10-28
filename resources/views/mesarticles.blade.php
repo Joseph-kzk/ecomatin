@@ -248,7 +248,8 @@
 
                         let divo = document.createElement('div')
                         let lien2 = document.createElement('a')
-                            lien2.classList.add('href="{{ route('articles.edit',$article->idarticle) }}"')
+                            lien2.classList.add('href="{{ route('articles.edit',$article->idarticle) }}"','btn','btn-primary')
+
                         let lien3 = document.createElement('a')
                             lien3.classList.add('href="#modal-alert{{$article->idarticle}}"')
 
