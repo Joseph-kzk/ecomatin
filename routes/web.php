@@ -27,6 +27,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/mesarticles', 'HomeController@mesarticles')->name('mesarticles');
+
 Route::post('/search', 'HomeController@search');
 
 Route::get('/homecordored', 'HomeController@homecordored');
