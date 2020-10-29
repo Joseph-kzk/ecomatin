@@ -13,6 +13,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Input;
 
 
 class HomeController extends Controller
@@ -239,23 +240,12 @@ class HomeController extends Controller
          return view('magazines', compact('magazines'));
      }
 
-     public function search(Request $request){
+    public function search(Request $request)
+    {
+        $q = Input::get ( 'q' );
+        $articles = Article::where ( 'titre', 'LIKE', '%' . $q . '%' )->orWhere ( 'auteur', 'LIKE', '%' . $q . '%' )->get ();
 
-         $words = $request->words;
+        return view ( 'search', compact('articles'));
 
-         $search = DB::table('articles')
-             ->where('auteur', 'LIKE', "%$words%")
-             ->Orwhere('titre', 'LIKE', "%$words%")
-             ->Orwhere('chapeau', 'LIKE', "%$words%")
-             ->OrderBy('created_at', 'DESC')
-             ->get();
-
-         return response()->json([
-             'success' => true,
-             'search' => $search
-         ]);
-
-
-
-     }
+    }
 }
