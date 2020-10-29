@@ -21,7 +21,7 @@ $factory->define(User::class, function (Faker $faker) {
         'name' => $faker->name,
         'lastname' => $faker->lastName,
         'number' => $faker->unique()->phoneNumber,
-        "role" => $faker->randomElements(['redacteur_en_chef','journaliste','Coordonnateur Journal tabloïd','Coordonnateur Journal en ligne','Coordonnateur des rédactions']),
+        "role" => $faker->randomElements(['redacteur_en_chef','Journaliste','Coordonnateur Journal tabloïd','Coordonnateur Journal en ligne','Coordonnateur des rédactions']),
         'email' => $faker->unique()->safeEmail,
         'password' => bcrypt("password"),
     ];
@@ -31,8 +31,8 @@ $factory->state(User::class, 'redacteur_en_chef', [
     'role' => 'redacteur_en_chef'
 ]);
 
-$factory->state(User::class, 'journaliste', [
-    'role' => 'journaliste'
+$factory->state(User::class, 'Journaliste', [
+    'role' => 'Journaliste'
 ]);
 
 $factory->state(User::class, 'Coordonnateur Journal tabloïd', [

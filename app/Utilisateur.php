@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Utilisateur extends Model
 {
+    use Notifiable;
     protected $primaryKey = "idutilisateur";
 
     protected $fillable = [

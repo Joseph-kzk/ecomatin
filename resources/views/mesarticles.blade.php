@@ -227,9 +227,6 @@
                         let div = document.createElement('div')
                             div.classList.add('email-info')
 
-                        let lien = document.createElement('a')
-                            lien.classList.add('href="{{ route('articles.show',$article->idarticle) }}"')
-
                         let auteur = document.createElement('span')
                             auteur.classList.add('email-sender')
                             auteur.innerHTML = search[i].auteur
@@ -246,24 +243,13 @@
                         create_at.classList.add('email-desc')
                         create_at.innerHTML = search[i].created_at
 
-                        let divo = document.createElement('div')
-                        let lien2 = document.createElement('a')
-                            lien2.classList.add('href="{{ route('articles.edit',$article->idarticle) }}"','btn','btn-primary')
-
-                        let lien3 = document.createElement('a')
-                            lien3.classList.add('href="#modal-alert{{$article->idarticle}}"')
 
                         li.appendChild(div)
-                        li.appendChild(divo)
 
-                        div.appendChild(lien)
                         div.appendChild(auteur)
                         div.appendChild(title)
                         div.appendChild(chapeau)
                         div.appendChild(create_at)
-
-                        divo.appendChild(lien2)
-                        divo.appendChild(lien3)
 
                         results.appendChild(li)
 

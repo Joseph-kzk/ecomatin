@@ -13,6 +13,7 @@ use Illuminate\View\View;
 
 class MenuController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *

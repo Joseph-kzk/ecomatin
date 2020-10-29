@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use nApp\Utilisateur;
+use App\Utilisateur;
 use App\User;
 use App\Sujet;
+use App\Article;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
@@ -14,6 +14,7 @@ use Illuminate\View\View;
 
 class UtilisateurController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +23,8 @@ class UtilisateurController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('auth.register', compact('users'));
+        $articles = Article::all();
+        return view('auth.register', compact('users', 'articles'));
     }
 
     /**
@@ -33,7 +35,8 @@ class UtilisateurController extends Controller
     public function create()
     {
         $vars = DB::table('rubriques')->get();
-        return view('sujet', compact('vars'));
+        $articles = Article::all();
+        return view('sujet', compact('vars','articles'));
     }
 
     /**
@@ -117,5 +120,25 @@ class UtilisateurController extends Controller
         $users = User::findOrfail($id);
         $users->delete();
         return redirect()->route('users.index')->with('success', 'Utilisateur supprimé avec succès');
+    }
+
+    public function search(Request $request){
+
+        $words = $request->words;
+
+        $search = DB::table('articles')
+            ->where('auteur', 'LIKE', "%$words%")
+            ->Orwhere('titre', 'LIKE', "%$words%")
+            ->Orwhere('chapeau', 'LIKE', "%$words%")
+            ->OrderBy('created_at', 'DESC')
+            ->get();
+
+        return response()->json([
+            'success' => true,
+            'search' => $search
+        ]);
+
+
+
     }
 }

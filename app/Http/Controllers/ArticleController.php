@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Notifications\NewAddArticle;
+use App\User;
 use App\Rubrique;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -74,6 +76,10 @@ class ArticleController extends Controller
             'iduser' => auth()->id()
         ]);
         $articles->save();
+
+        // Envois de la notification
+       $articles->notify(new NewAddArticle($articles, auth()->user()));
+
 
         return redirect()->route('mesarticles')->with('success', 'Article enregistré et envoyé avec succès');
     }

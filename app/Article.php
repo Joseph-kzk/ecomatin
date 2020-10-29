@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Article extends Model
 {
+    use Notifiable;
     protected $primaryKey = "idarticle";
 
     protected $fillable = [
@@ -32,4 +34,5 @@ class Article extends Model
     {
         return $squery->where('iduser',auth()->id());
     }
+
 }

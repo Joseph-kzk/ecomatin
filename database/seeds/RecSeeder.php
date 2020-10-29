@@ -26,7 +26,7 @@ class RecSeeder extends Seeder
         ]);
 
         factory(User::class, 3)->states('redacteur_en_chef')->create();
-        factory(User::class, 15)->states('journaliste')->create();
+        factory(User::class, 15)->states('Journaliste')->create();
         factory(User::class, 5)->states('Coordonnateur des rédactions')->create();
         factory(User::class, 5)->states('Coordonnateur Journal tabloïd')->create();
 

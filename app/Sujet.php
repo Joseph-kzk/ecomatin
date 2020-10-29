@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Sujet extends Model
 {
+    use Notifiable;
     protected $primaryKey = "idsujet";
 
     protected $fillable = [

@@ -58,7 +58,7 @@
                                 </tr>
                             </thead>
 
-                            <tbody>
+                            <tbody id="results">
 
                                 @if(count($users) > 0)
 
@@ -287,6 +287,67 @@
     <script src="{{ asset('assets/js/demo/ui-modal-notification.demo.js') }}" type="85fc20a8260852016fe6a764-text/javascript"></script>
     <script src="{{ asset('assets/cdn-cgi2/scripts/7089c43e/cloudflare-static/rocket-loader.min.js') }}" data-cf-settings="85fc20a8260852016fe6a764-|49" defer=""></script>
 
+    <script>
+
+        function search(event) {
+
+            event.preventDefault()
+            const words = document.querySelector('#words').value
+            const url = document.querySelector('#searchForm').getAttribute('action')
+
+            axios.post('/search', {
+                words: words,
+            })
+                .then(function (response) {
+                    const search = response.data.search
+
+                    let results = document.querySelector('#results')
+                    results.innerHTML = ''
+
+                    for(let i = 0; search.length; i++){
+
+                        let li = document.createElement('li')
+                        li.classList.add('list-group-item', 'unread')
+
+                        let div = document.createElement('div')
+                        div.classList.add('email-info')
+
+                        let auteur = document.createElement('span')
+                        auteur.classList.add('email-sender')
+                        auteur.innerHTML = search[i].auteur
+
+                        let title = document.createElement('span')
+                        title.classList.add('email-title')
+                        title.innerHTML = search[i].titre
+
+                        let chapeau = document.createElement('span')
+                        chapeau.classList.add('email-desc')
+                        chapeau.innerHTML = search[i].chapeau
+
+                        let create_at = document.createElement('span')
+                        create_at.classList.add('email-desc')
+                        create_at.innerHTML = search[i].created_at
+
+
+                        li.appendChild(div)
+                        div.appendChild(auteur)
+                        div.appendChild(title)
+                        div.appendChild(chapeau)
+                        div.appendChild(create_at)
+
+                        results.appendChild(li)
+
+
+
+                    }
+
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+
+    </script>
 
 
 </body>

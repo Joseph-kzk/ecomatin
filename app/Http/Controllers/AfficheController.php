@@ -6,7 +6,6 @@ use App\Menu;
 use App\Sujet;
 use App\Rubrique;
 use App\Article;
-use App\Utilisateur;
 use App\User;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
