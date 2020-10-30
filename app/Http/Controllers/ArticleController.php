@@ -76,9 +76,13 @@ class ArticleController extends Controller
             'iduser' => auth()->id()
         ]);
         $articles->save();
+        $users = new User();
 
         // Envois de la notification
-       $articles->notify(new NewAddArticle($articles, auth()->user()));
+       //$articles->user()->notify(new NewAddArticle($articles, auth()->user()));
+
+        $articles->notify(new NewAddArticle($articles, auth()->user()));
+
 
 
         return redirect()->route('mesarticles')->with('success', 'Article enregistré et envoyé avec succès');
