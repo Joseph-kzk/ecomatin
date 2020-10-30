@@ -29,7 +29,7 @@
 					<div class="profile-header-content">
 
 						<div class="profile-header-img">
-							<img src="{{ asset('assets/img/logo/logo-ecomatin.jfif') }}" alt="">
+							<img src="{{ asset('assets/img/logo/logo2.jfif') }}" alt="">
 						</div>
 
 

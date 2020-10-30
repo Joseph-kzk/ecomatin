@@ -64,7 +64,6 @@
 														<div class="email-to">
 															Pour le : {{ $articles->type }}
                                                         </div>
-                                                        <p class="mt-3 mb-2px">Encombrement : {{strlen($articles->texte)}} Signes</p>
                                                     </div>
 
 												</li>
