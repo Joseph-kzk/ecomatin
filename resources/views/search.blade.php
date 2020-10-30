@@ -65,9 +65,9 @@
                                     <div data-scrollbar="true" data-height="100%">
                                         <ul class="list-group list-group-lg no-radius list-email">
 
-                                            @if(count($articles) > 0)
+                                            @if(count($search) > 0)
 
-                                                @foreach($articles as $key=> $article)
+                                                @foreach($search as $key=> $article)
 
                                                     <li class="list-group-item unread">
 
@@ -126,43 +126,6 @@
 
     </div>
 
-    @foreach($articles as $article)
-
-        <form action="{{ route('articles.destroy', $article->idarticle) }}" method="POST">
-
-            @method('delete')
-            @csrf
-
-            <div class="modal fade" id="modal-alert{{$article->idarticle}}">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Alerte</h4>
-                            <button type="button" class="close" data-dismiss="modal"
-                                aria-hidden="true">×</button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="alert alert-danger m-b-0" style="text-align:center;">
-                                <i class="fa fa-exclamation-triangle fa-3x"style="margin-bottom:15px;"></i>
-                                <h4 class="modal-title">ATTENTION !!</h4>
-                                <p>
-                                    Etes-vous sûr de vouloir supprimer cet article ?
-                                </p>
-                            </div>
-                        </div>
-
-                            <div class="modal-footer">
-                                <button class="btn btn-white" data-dismiss="modal">NON</button>
-                                <button type="submit" class="btn btn-danger" type="submit" >OUI</button>
-                            </div>
-
-                    </div>
-                </div>
-            </div>
-
-        </form>
-
-    @endforeach
 
 
 
