@@ -63,7 +63,6 @@
                                 <div class="vertical-box-inner-cell bg-white">
 
                                     <div data-scrollbar="true" data-height="100%">
-
                                         <ul class="list-group list-group-lg no-radius list-email">
 
                                             @if(count($articles) > 0)
@@ -97,11 +96,10 @@
                                                 @endforeach
 
                                                 @else
-                                                <p>Aucun article pour le moment</p>
+                                                <h3 style="text-align: center">Aucun résultat pour cette recherche</h3>
 
                                             @endif
                                         </ul>
-
                                     </div>
 
                                 </div>

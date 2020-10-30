@@ -202,69 +202,6 @@
     </script>
     <script src="{{ asset('assets/cdn-cgi2/scripts/7089c43e/cloudflare-static/rocket-loader.min.js') }}" data-cf-settings="ef824e106a4851ec9a31c0a1-|49" defer=""></script>
 
-    <script>
-
-        function search(event) {
-
-            event.preventDefault()
-            const words = document.querySelector('#words').value
-            const url = document.querySelector('#searchForm').getAttribute('action')
-
-            axios.post(`${url}`, {
-                words: words,
-            })
-                .then(function (response) {
-                    const search = response.data.search
-
-                    let results = document.querySelector('#results')
-                    results.innerHTML = ''
-
-                    for(let i = 0; search.length; i++){
-
-                        let li = document.createElement('li')
-                            li.classList.add('list-group-item', 'unread')
-
-                        let div = document.createElement('div')
-                            div.classList.add('email-info')
-
-                        let auteur = document.createElement('span')
-                            auteur.classList.add('email-sender')
-                            auteur.innerHTML = search[i].auteur
-
-                        let title = document.createElement('span')
-                            title.classList.add('email-title')
-                            title.innerHTML = search[i].titre
-
-                        let chapeau = document.createElement('span')
-                        chapeau.classList.add('email-desc')
-                        chapeau.innerHTML = search[i].chapeau
-
-                        let create_at = document.createElement('span')
-                        create_at.classList.add('email-desc')
-                        create_at.innerHTML = search[i].created_at
-
-
-                        li.appendChild(div)
-
-                        div.appendChild(auteur)
-                        div.appendChild(title)
-                        div.appendChild(chapeau)
-                        div.appendChild(create_at)
-
-                        results.appendChild(li)
-
-
-
-                    }
-
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-        }
-
-        </script>
-
 </body>
 
 </html>
