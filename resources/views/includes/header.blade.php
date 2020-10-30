@@ -11,10 +11,12 @@
     <ul class="navbar-nav navbar-right">
         <li class="navbar-form">
 
-            <form action="" method="GET">
+            <form action=" {{ url('search') }} " method="POST" >
+
+                @csrf
 
                 <div class="form-group">
-                    <input type="text" name="search" class="form-control" placeholder="Recherche..." />
+                    <input type="text" id="words" class="form-control" name="q" placeholder="Recherche..." />
                     <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
                 </div>
 
@@ -56,7 +58,7 @@
         </li>
     </ul>
 
-</div>
+    </div>
 
 
 
