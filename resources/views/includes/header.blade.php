@@ -22,11 +22,11 @@
             </form>
 
         </li>
-            @unless(auth()->user()->unreadNotifications->isEmpty())
+            @unless(\App\Article::user()->name)
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle f-s-14">
                         <i class="fa fa-bell"></i>
-                        <span class="label"> {{ auth()->user()->unreadNotification->count() }} </span>
+                        <span class="label"> {{ Article()->user()->unreadNotification->count() }} </span>
                     </a>
                     <div class="dropdown-menu media-list dropdown-menu-right">
                         <div class="dropdown-header">NOTIFICATIONS ({{ auth()->user()->unreadNotification->count() }})</div>
@@ -36,10 +36,10 @@
                                 <i class="fa fa-envelope media-object bg-silver-darker"></i>
                                 <i class="fab fa-google text-warning media-object-icon f-s-14"></i>
                             </div>
-                            @foreach(auth()->user()->unreadNotifications  as $notification)
+                            @foreach(article()->user()->unreadNotifications  as $notification)
                                 <div class="media-body">
                                     <h6 class="media-heading"> New Email {{ $notification->data['title'] }}</h6>
-                                    <h6 class="media-heading"> New Email {{ $notification->data['name'] }}</h6>
+                                    <h6 class="media-heading"> De : {{ $notification->data['name'] }}</h6>
                                     <div class="text-muted f-s-10">2 hour ago</div>
                                 </div>
                             @endforeach

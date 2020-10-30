@@ -35,4 +35,6 @@ class Article extends Model
         return $squery->where('iduser',auth()->id());
     }
 
+
+
 }
