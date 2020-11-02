@@ -29,8 +29,6 @@
 
             <h1 class="page-header">Liste des menus <small>tableau de tous les menus</small></h1>
 
-            <a href="#modal-dialog" class="btn btn-sm btn-info" data-toggle="modal" style="margin-bottom:15px;">Ajouter <i class="fa fa-plus"></i> </a>
-
             <div class="row">
 
 
@@ -70,8 +68,6 @@
                                             <td>{{ $menu->nom }}</td>
                                             <td>
                                                 <a href="{{ route('menus.show', $menu->idmenu)}}" class="btn btn-primary btn-xs" > <i class="fa fa-eye"></i></a>
-                                                <a href="#modal-dialog2" class="btn btn-primary btn-xs" data-toggle="modal"> <i class="fa fa-pen"></i></a>
-                                                <a href="#modal-alert" class="btn btn-danger btn-xs" data-toggle="modal"> <i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
 
@@ -95,114 +91,6 @@
         <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 
     </div>
-
-
-
-    <div class="modal fade" id="modal-dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Nouveau menu</h4>
-                    <button type="button" class="close" data-dismiss="modal"
-                        aria-hidden="true">×</button>
-                </div>
-
-                <div class="modal-body">
-
-                    <form action="{{ route('menus.store') }}" method="POST">
-                        @csrf
-
-                        <input type="text" name="nom" class="form-control m-b-5" placeholder="Nom" />
-
-                        <div class="modal-footer">
-
-                            <button class="btn btn-white" data-dismiss="modal">Fermer</button>
-                            <button type="submit" class="btn btn-info">Créer</button>
-
-                        </div>
-
-                    </form>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    @foreach($menus as $menu)
-
-        <div class="modal fade" id="modal-dialog2{{$menu->idmenu}}">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Modification</h4>
-                        <button type="button" class="close" data-dismiss="modal"
-                            aria-hidden="true">×</button>
-                    </div>
-
-                    <form action="{{ route('menus.update', $menu->idmenu) }} " method="POST">
-                        @method('put')
-                        @csrf
-
-                        <div class="modal-body">
-
-                            <input type="text" name="nom" class="form-control m-b-5" value="{{$menu->nom}}" />
-
-                            <div class="modal-footer">
-
-                                <button class="btn btn-white" data-dismiss="modal">Fermer</button>
-                                <button type="submit" class="btn btn-info">Enregistrer</button>
-
-                            </div>
-
-                        </div>
-
-                    </form>
-
-                </div>
-            </div>
-        </div>
-
-    @endforeach
-
-
-    @foreach($menus as $menu)
-
-        <form action="{{ route('menus.destroy', $menu->idmenu) }}" method="POST">
-
-            @method('delete')
-            @csrf
-
-            <div class="modal fade" id="modal-alert{{$menu->idmenu}}">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Alerte</h4>
-                            <button type="button" class="close" data-dismiss="modal"
-                                aria-hidden="true">×</button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="alert alert-danger m-b-0" style="text-align:center;">
-                                <i class="fa fa-exclamation-triangle fa-3x"style="margin-bottom:15px;"></i>
-                                <h4 class="modal-title">ATTENTION !!</h4>
-                                <p>
-                                    Etes-vous sûr de vouloir supprimer ce menu ?
-                                </p>
-                            </div>
-                        </div>
-
-                            <div class="modal-footer">
-                                <button class="btn btn-white" data-dismiss="modal">NON</button>
-                                <button type="submit" class="btn btn-danger" type="submit" >OUI</button>
-                            </div>
-
-                    </div>
-                </div>
-            </div>
-
-        </form>
-
-    @endforeach
 
 
 

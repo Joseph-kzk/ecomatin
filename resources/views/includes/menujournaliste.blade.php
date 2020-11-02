@@ -29,6 +29,13 @@
                     <span>Mes articles</span>
                 </a>
             </li>
+
+            <li style="margin-bottom: 5px;">
+                <a href="{{ url('consultermenu') }}">
+                    <i class="fa fa-clipboard"></i>
+                    <span>Menus</span>
+                </a>
+            </li>
         </ul>
 
     </div>

@@ -61,4 +61,6 @@ Route::resource('articles', 'ArticleController');
 
 Route::resource('menus', 'MenuController');
 
+Route::get('/consultermenu', 'MenuController@consultermenu');
+
 Route::resource('/{id}/sujets', 'SujetController');
