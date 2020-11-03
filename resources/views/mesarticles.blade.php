@@ -90,8 +90,8 @@
                                                                     <span class="email-title">{{ $article->titre }}</span>
                                                                     <span class="email-desc">{{ $article->chapeau }}</span>
                                                                     <span class="email-desc" style="margin-left: 100px;">{{ $article->created_at }}</span>
-
-                                                                </a>
+                                                                    <span class="email-desc" > Caracteres:  {{ strlen(strip_tags($article->texte)) }}</span>
+                                                                 </a>
 
                                                             </div>
                                                             <div>
@@ -100,6 +100,7 @@
 
                                                             </div>
                                                         </li>
+
 
                                                     @endforeach
 

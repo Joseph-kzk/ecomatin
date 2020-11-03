@@ -11,6 +11,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 class ArticleController extends Controller
@@ -139,6 +140,21 @@ class ArticleController extends Controller
         $articles = Article::findOrfail($id);
         $articles->delete();
         return redirect()->back()->with('success', 'Articles supprimée avec succès');
+    }
+
+
+    public function sendMail(int $article,Request $request)
+    {
+        $this->validate($request,[
+            'email' => 'required|email'
+        ]);
+        $article = Article::query()->findOrFail($article);
+        Mail::send('emails.send_article', ['articles' => $article], function ($message) use ($request,$article){
+            $message->from('contact@ecomatin.com', "Envoie de l'article  {{$article->titre}} ");
+            $message->to($request->get('email'));
+            $message->subject("Envoie de l'article  {$article->titre} ");
+        });
+        return back()->with('success','Envoie réussi');
     }
 
 

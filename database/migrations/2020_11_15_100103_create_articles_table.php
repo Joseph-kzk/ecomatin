@@ -24,7 +24,7 @@ class CreateArticlesTable extends Migration
             $table->text('reseau');
             $table->string('type');
             $table->string('rubrique');
-            $table->binary('image');
+            $table->binary('image')->nullable();
             $table->string('legende');
             $table->string('tag');
             $table->longText('texte');

@@ -30,7 +30,10 @@
                             <div class="pull-left">
                                 <div class="btn-group mr-2">
                                 </div>
-                                <button class="btn btn-white"> <i class="fa fa-fw fa-envelope"></i> <span class="d-none d-lg-inline">Envoi par mail</span></button>
+                                <button class="btn btn-white" data-toggle="modal" data-target="#send_mail_modal">
+                                    <i class="fa fa-fw fa-envelope"></i>
+                                    <span class="d-none d-lg-inline">Envoi par mail</span>
+                                </button>
                             </div>
                         </div>
 
@@ -45,6 +48,7 @@
 
                                         <div class="wrapper">
 											<h4 class="m-t-0 m-b-15 f-w-400"><u>Surtitre</u>  : {{ $articles->surtitre }}</h4>
+											<h4 class="m-t-0 m-b-15 f-w-400"><u>Caracteres</u>  :  {{ strlen(strip_tags($article->texte)) }} </h4>
 											<h5 class="m-t-0 m-b-15 f-w-400"><u> <b>Titre</b></u>  : {{ $articles->titre }}</h5>
 											<h6 class="m-t-0 m-b-15 f-w-400"> <b> Chapeau :</b>{{ $articles->chapeau }}</h6>
 											<h6 class="m-t-0 m-b-15 f-w-400"> <b> Chapeau des réseaux sociaux : </b>{{ $articles->reseau }}</h6>
@@ -118,6 +122,52 @@
 
         <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="send_mail_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xs">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Envoyé l'article par mail</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="list-group">
+                        <div class="list-group-item">ID: {{$articles->idarticle}}</div>
+                        <div class="list-group-item">Titre: {{$articles->titre}}</div>
+                        <div class="list-group-item">Surtittre: {{$articles->surtitre}}</div>
+                        <div class="list-group-item">Auteur: {{$articles->auteur}}</div>
+                        <div class="list-group-item">Chapeau: {{$articles->chapeau}}</div>
+                        <div class="list-group-item">Reseau: {{$articles->reseau}}</div>
+                        <div class="list-group-item">Type: {{$articles->type}}</div>
+                        <div class="list-group-item">Rubrique: {{$articles->rubrique}}</div>
+                        <div class="list-group-item">Image:</div>
+                        <div class="list-group-item">
+                            <img style="width: 100%" src="data:image/jpg;base64,{{ $articles->image }}" alt="" /> </div>
+                        <div class="list-group-item">Legende: {{$articles->legende}}</div>
+                        <div class="list-group-item">Etiquette: {{$articles->tag}}</div>
+                        <div class="list-group-item">Date d'entregistrement: {{$articles->created_at}}</div>
+                        <div class="list-group-item">Date de mise a jour: {{$articles->updated_at}}</div>
+                    </div>
+                    <form action="{{route('send_article_mail',['article' => $articles->idarticle ])}}"
+                        method="post">
+                        @csrf
+                        <div class="form-row mb-3">
+                            <div class="form-group col-lg-12 mt-2">
+                                <label for="">Envoyé a cette adresse email:</label>
+                                <input class="form-control" type="email" name="email" required>
+                            </div>
+                            <div class="form-group col-lg-12 text-right">
+                                <button type="submit" class="btn btn-primary">Envoyé</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="{{ asset('assets/js/app.min.js') }}" type="10a409e9517e95603a730c3c-text/javascript"></script>

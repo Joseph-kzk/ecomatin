@@ -83,7 +83,7 @@
                                                                 <span class="email-title">{{ $article->titre }}</span>
                                                                 <span class="email-desc">{{ $article->chapeau }}</span>
                                                                 <span class="email-desc" style="margin-left: 80px;">{{ $article->created_at }}</span>
-
+                                                                <span class="email-desc" > {{ strlen(strip_tags($article->texte)) }}</span>
                                                             </a>
 
                                                         </div>
@@ -269,7 +269,7 @@
         }
 
     </script>
-    
+
 </body>
 
 </html>

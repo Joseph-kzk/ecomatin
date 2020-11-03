@@ -243,9 +243,9 @@ class HomeController extends Controller
     public function search(Request $request)
     {
         $q = Input::get ( 'q' );
-        $articles = Article::where ( 'titre', 'LIKE', '%' . $q . '%' )->orWhere ( 'auteur', 'LIKE', '%' . $q . '%' )->get ();
+        $search = Article::where ( 'titre', 'LIKE', '%' . $q . '%' )->orWhere ( 'auteur', 'LIKE', '%' . $q . '%' )->get ();
 
-        return view ( 'search', compact('articles'));
+        return view ( 'search', compact('search'));
 
     }
 }
