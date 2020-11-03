@@ -15,7 +15,7 @@ class RecSeeder extends Seeder
      */
     public function run()
     {
-        DB::table("users")->insert([
+        User::query()->create([
             'name'=>"BONTSEBE",
             'lastname'=>"Serges",
             'number'=>"698310165",
@@ -24,17 +24,10 @@ class RecSeeder extends Seeder
             'password' => bcrypt("password"),
             "created_at" => now()
         ]);
-
         factory(User::class, 3)->states('redacteur_en_chef')->create();
         factory(User::class, 15)->states('Journaliste')->create();
         factory(User::class, 5)->states('Coordonnateur des rédactions')->create();
         factory(User::class, 5)->states('Coordonnateur Journal tabloïd')->create();
-
-        factory(Article::class, 50)->create(
-            [
-                'idUser' => factory(User::class)->create()->id
-            ]
-        );
-
+        factory(Article::class, 50)->create();
     }
 }

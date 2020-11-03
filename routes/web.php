@@ -12,6 +12,7 @@
 */
 
 use App\Article;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view("auth.login");
@@ -64,3 +65,8 @@ Route::resource('menus', 'MenuController');
 Route::get('/consultermenu', 'MenuController@consultermenu');
 
 Route::resource('/{id}/sujets', 'SujetController');
+
+
+// Envoi du mail d'un article
+Route::post('/send_article_mail/{article}','ArticleController@sendMail')
+    ->name('send_article_mail');
