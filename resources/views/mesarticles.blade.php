@@ -86,12 +86,13 @@
                                                             <div class="email-info">
                                                                 <a href="{{ route('articles.show', $article->idarticle) }}">
 
-                                                                    <span class="email-sender">{{ $article->auteur }}</span>
+                                                                    <span class="email-sender">{{ $article->auteur }}  </span>
                                                                     <span class="email-title">{{ $article->titre }}</span>
                                                                     <span class="email-desc">{{ $article->chapeau }}</span>
                                                                     <span class="email-desc" style="margin-left: 100px;">{{ $article->created_at }}</span>
-                                                                    <span class="email-desc" > Caracteres:  {{ strlen(strip_tags($article->texte)) }}</span>
-                                                                 </a>
+                                                                    <span class="email-desc" > Mots: {{ $article->word_count  }}</span>
+
+                                                                </a>
 
                                                             </div>
                                                             <div>
