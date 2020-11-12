@@ -83,7 +83,7 @@
                                                                 <span class="email-title">{{ $article->titre }}</span>
                                                                 <span class="email-desc">{{ $article->chapeau }}</span>
                                                                 <span class="email-desc" style="margin-left: 80px;">{{ $article->created_at }}</span>
-                                                                <span class="email-desc" > {{ strlen(strip_tags($article->texte)) }}</span>
+                                                                <span class="email-desc" > Mots: {{ $article->word_count  }}</span>
                                                             </a>
 
                                                         </div>

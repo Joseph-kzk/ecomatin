@@ -15,7 +15,7 @@ class RecSeeder extends Seeder
      */
     public function run()
     {
-        User::query()->create([
+        $admin =User::query()->create([
             'name'=>"BONTSEBE",
             'lastname'=>"Serges",
             'number'=>"698310165",
@@ -29,5 +29,10 @@ class RecSeeder extends Seeder
         factory(User::class, 5)->states('Coordonnateur des rédactions')->create();
         factory(User::class, 5)->states('Coordonnateur Journal tabloïd')->create();
         factory(Article::class, 50)->create();
+        if (app()->environment('local')) {
+            factory(\App\Article::class,30)->create([
+                'idUser' =>  $admin->id
+            ]);
+        }
     }
 }

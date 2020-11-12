@@ -35,6 +35,11 @@ class Article extends Model
         return $squery->where('iduser',auth()->id());
     }
 
+    public function getWordCountAttribute()
+    {
+        return str_word_count(strip_tags($this->attributes['texte']));
+    }
+
 
 
 }
