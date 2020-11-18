@@ -48,7 +48,7 @@
 
                                         <div class="wrapper">
 											<h4 class="m-t-0 m-b-15 f-w-400"><u>Surtitre</u>  : {{ $articles->surtitre }}</h4>
-											<h4 class="m-t-0 m-b-15 f-w-400"><u>Caracteres</u>  :  {{ strlen(strip_tags($article->texte)) }} </h4>
+											<h4 class="m-t-0 m-b-15 f-w-400"><u>Caracteres</u>  :  {{ strlen(strip_tags($articles->texte)) }} </h4>
 											<h5 class="m-t-0 m-b-15 f-w-400"><u> <b>Titre</b></u>  : {{ $articles->titre }}</h5>
 											<h6 class="m-t-0 m-b-15 f-w-400"> <b> Chapeau :</b>{{ $articles->chapeau }}</h6>
 											<h6 class="m-t-0 m-b-15 f-w-400"> <b> Chapeau des réseaux sociaux : </b>{{ $articles->reseau }}</h6>

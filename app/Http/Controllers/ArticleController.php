@@ -16,6 +16,12 @@ use Illuminate\View\View;
 
 class ArticleController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -74,17 +80,12 @@ class ArticleController extends Controller
             'legende' => $request->get('legende'),
             'tag' => $request->get('tag'),
             'texte' => $request->get('texte'),
-            'iduser' => auth()->id()
+            'iduser' => auth()->user()->id
         ]);
         $articles->save();
-        $users = new User();
 
         // Envois de la notification
-       //$articles->user()->notify(new NewAddArticle($articles, auth()->user()));
-
-        $articles->notify(new NewAddArticle($articles, auth()->user()));
-
-
+       $articles->notify(new NewAddArticle($articles, auth()->user()));
 
         return redirect()->route('mesarticles')->with('success', 'Article enregistré et envoyé avec succès');
     }

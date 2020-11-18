@@ -35,6 +35,8 @@ class Article extends Model
         return $squery->where('iduser',auth()->id());
     }
 
-
+    public function user(){
+        return $this->belongsTo('App\User', 'iduser');
+    }
 
 }

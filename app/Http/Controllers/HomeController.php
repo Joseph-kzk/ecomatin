@@ -30,7 +30,7 @@ class HomeController extends Controller
 
     public function mesarticles()
     {
-        $mesarticles = Article::user()->get();
+        $mesarticles = Article::all()->where('iduser','=', auth()->user()->id);
         return view('mesarticles')
             ->with('articles',$mesarticles);
         ;
@@ -74,7 +74,7 @@ class HomeController extends Controller
 
         elseif($role == 'Journaliste')
         {
-            $mesarticles = Article::user()->get();
+            $mesarticles = Article::all()->where('iduser','==',auth()->user()->id);
             return view('mesarticles')
                 ->with('journalistes',$journalistes)
                 ->with('articles',$mesarticles)
