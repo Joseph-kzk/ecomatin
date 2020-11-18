@@ -30,16 +30,15 @@
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle f-s-14">
                         <i class="fa fa-bell"></i>
-                        <span class="label">{{ $articles->count() }}</span>
+
                     </a>
                 @foreach ($articles as $notification)
 
 
                         <div class="dropdown-menu media-list dropdown-menu-right">
-                            <div class="dropdown-header">NOTIFICATIONS ( {{ $notification->count() }})</div>
+                            <div class="dropdown-header">NOTIFICATIONS ({{ $notification->count() }})</div>
 
                             {{ $notification->titre }}
-                            {{ $notification->name }}
                             {{ $notification->type }}
 
                             <a href="javascript:;" class="dropdown-item media">

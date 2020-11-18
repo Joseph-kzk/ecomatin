@@ -44,7 +44,7 @@ class HomeController extends Controller
     public function index()
     {
         $journalistes = User::all()->count();
-        $articles = Article::all()->count();
+        $articles = Article::all();
         $rubriques = Rubrique::all()->count();
         $jl = Article::where('type','=','Journal en ligne')->get()->count();
         $jt = Article::where('type','=','Journal tabloïd')->get()->count();

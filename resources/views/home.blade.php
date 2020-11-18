@@ -36,7 +36,7 @@
 						<div class="stats-icon"><i class="fa fa-file-archive"></i></div>
 						<div class="stats-info">
 							<h4>TOUS LES ARTICLES</h4>
-							<p>{{$articles}}</p>
+							<p>{{$articles->count()}}</p>
 						</div>
 						<div class="stats-link">
 							<a href="{{ route('articles.index') }}">voir les détails <i class="fa fa-arrow-alt-circle-right"></i></a>
